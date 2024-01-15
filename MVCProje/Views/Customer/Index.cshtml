@@ -1,0 +1,45 @@
+﻿@model List<MVCProje.Models.Entity.TBLMUSTERILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Müşteri Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Müşteri Id</th>
+        <th>Ürün Ad</th>
+        <th>Müşteri Soyad</th>
+        <th>Durum</th>
+        <th>Güncelle</th>
+        <th>Pasif Yap</th>
+        <th>Aktif Yap</th>
+        
+
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.MUSTERIID</th>
+                <td>@item.MUSTERIAD </td>
+                <td>@item.MUSTERISOYAD </td>
+                <td>@item.Durum </td>
+                <td>
+                    <a href="/Customer/UpdateCustomer/@item.MUSTERIID" class="btn btn-success" style="width:100%">Güncelle</a>
+                </td>
+                <td>
+                    @Html.ActionLink("Pasif Yap", "PasifYap", new { id = item.MUSTERIID }, new { @class = "btn btn-info", onclick = "return confirm('Gerçekten Pasif Yapmak İstiyor musun')" })
+                </td>
+                <td>
+                    <a href="/Customer/ActiveCustomer/@item.MUSTERIID" class="btn btn-primary" style="width:100%">Aktif Yap</a>
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Customer/AddCustomer/" class="btn btn-primary">Müşteri Ekle</a>
+

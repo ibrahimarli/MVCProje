@@ -1,0 +1,48 @@
+﻿@using MVCProje.Models.Entity
+@model List<TBLURUNLER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>ÜRÜN LİSTESİ</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Id</th>
+        <th>Ürün Ad</th>
+        <th>Ürün Marka</th>
+        <th>Ürün Kategori</th>
+        <th>Ürün Fiyat</th>
+        <th>Ürün Stok</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Durum</th>
+        <th>Durum Degis</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.URUNID</th>
+                <td>@item.URUNAD </td>
+                <td>@item.MARKA </td>
+                <td>@(item.TBLKATEGORI != null ? item.TBLKATEGORI.KATEGORIAD : "")</td>
+                <td>@item.URUNFIYAT </td>
+                <td>@item.STOK </td>
+                <td>
+                    <a href="/ProductsDefault/DeleteProducts/@item.URUNID" class="btn btn-danger" style="width:100%">Sil</a>
+                </td>
+                <td>
+                    <a href="/ProductsDefault/UpdateProducts/@item.URUNID" class="btn btn-warning" style="width:100%">Güncelle</a>
+                </td>
+                <td>@item.Durum</td>
+                <td>
+                    <a href="/ProductsDefault/PasifYap/@item.URUNID" class="btn btn-info" style="width:100%">Pasif Yap</a>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>
+<a href="/ProductsDefault/AddProducts/" class="btn btn-primary" style="width:30%">Ürün Ekle</a>

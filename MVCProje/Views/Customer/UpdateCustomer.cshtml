@@ -1,0 +1,20 @@
+﻿@model MVCProje.Models.Entity.TBLMUSTERILER
+@{
+    ViewBag.Title = "UpdateCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post">
+    @Html.HiddenFor(x => x.MUSTERIID)
+    <label>Musteri Ad</label>
+    @Html.TextBoxFor(x => x.MUSTERIAD, new { @class = "form-control" })<br />
+    <label>Musteri Soyad</label>
+    @Html.TextBoxFor(x => x.MUSTERISOYAD, new { @class = "form-control" })<br />
+    <label>Durum</label>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <br />
+    <button class="btn btn-primary">Gücnelle</button>
+</form>
+
+

@@ -1,0 +1,19 @@
+﻿@model MVCProje.Models.Entity.TBLKATEGORI
+
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Yeni Kategori</h2>
+<form class="form-group" method="post">
+    <label>Kategori Ad</label>
+    @Html.TextBoxFor(x => x.KATEGORIAD, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.KATEGORIAD,"",new {@style="color:red"})
+    <br />
+    <label>Durum</label>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

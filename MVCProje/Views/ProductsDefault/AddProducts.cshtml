@@ -1,0 +1,38 @@
+﻿@model MVCProje.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "AddProducts";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<form method="post" class="form-group">
+    <div>
+        <label>Ürün Ad</label>
+        <input type="text" name="URUNAD" class="form-control" required="" />
+    </div>
+    <br />
+    <div>
+        <label>Marka</label>
+        <input type="text" name="MARKA" class="form-control" />
+    </div>
+    <br />
+    <div>
+        <label>Kategorisi</label>
+        @Html.DropDownListFor(x => x.TBLKATEGORI.KATEGORIID,(List<SelectListItem>)ViewBag.value,new {@class="form-control"})
+    </div>
+    <br />
+    <div>
+        <label>Fiyat</label>
+        <input type="text" name="URUNFIYAT" class="form-control" />
+    </div>
+    <div>
+        <label>Stok Adet</label>
+        <input type="text" name="STOK" class="form-control" />
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-primary" style="width:30%" ">Kaydet</button>
+    </div>
+</form>
+
+

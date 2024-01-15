@@ -1,0 +1,27 @@
+﻿@model MVCProje.Models.Entity.TBLMUSTERILER
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post">
+    <div>
+        <label>Müşteri Ad</label>
+        @Html.TextBoxFor(x => x.MUSTERIAD,new {@class="form-control"})
+        @Html.ValidationMessageFor(x => x.MUSTERIAD,"",new {@style="color:red"})
+    </div>
+    <div>
+        <label>Müşteri Soyad</label>
+        @Html.TextBoxFor(x => x.MUSTERISOYAD, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MUSTERISOYAD, "", new { @style = "color:red" })
+    </div>
+    <div>
+        <button class="btn btn-primary" id="btn1">Kaydet</button>
+    </div>
+    <script>
+        $('#btn1').onclick(fucntion(){
+            alert('Müşteri Ekleme İşlemi Yapıldı...');
+        });
+    </script>
+</form>
+

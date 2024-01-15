@@ -1,0 +1,25 @@
+﻿@model MVCProje.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "UpdateProducts";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post">
+    @Html.HiddenFor(x => x.URUNID)
+    <label>Ürün Ad</label>
+    @Html.TextBoxFor(x => x.URUNAD, new { @class = "form-control" })<br />
+    <label>Kategorisi</label>
+    @Html.DropDownListFor(x => x.URUNKATEGORI, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })<br />
+    <label>Fiyat</label>
+    @Html.TextBoxFor(x => x.URUNFIYAT, new { @class = "form-control" })<br />
+    <label>Marka</label>
+    @Html.TextBoxFor(x => x.MARKA, new { @class = "form-control" })<br />
+    <label>Stok</label>
+    @Html.TextBoxFor(x => x.STOK, new { @class = "form-control" })<br />
+    <label>Durum</label>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <br />
+    <button class="btn btn-primary">Gücnelle</button>
+</form>
+
